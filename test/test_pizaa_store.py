@@ -34,8 +34,9 @@ class TestPizzaStore(unittest.TestCase):
     def test_order_not_valid_pizza_tpe(self):
         pizzstore = CHPizzastore()
         with self.assertRaises(NotAvailbalePizza) as context:
+
             pizzstore.order_pizza("INVALID")
         
-        self.assertEqual(str(context.exception.message), "This Pizza is not available in our store")
+        self.assertEqual(context.exception.message, "This Pizza is not available in our store")
         
     
